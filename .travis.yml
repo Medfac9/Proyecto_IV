@@ -5,21 +5,7 @@ python:
   - "3.5.2"
   - "3.6"
 addons:
-  packages:
-    - unzip
-    - google-chrome-stable
-
-before_install:
-    # Install Chrome driver
-    - wget http://chromedriver.storage.googleapis.com/2.21/chromedriver_linux64.zip
-    - unzip chromedriver_linux64.zip
-    - sudo chmod u+x chromedriver
-    - sudo mv chromedriver /usr/bin/
-
-    # For selenium in headless linux system, But no need when PhantomJS
-    - "export DISPLAY=:99.0"
-    - "sh -e /etc/init.d/xvfb start"
-    - sleep 3 # give xvfb some time to start
+  firefox: "49.0"
 
 # command to install dependencies
 install:
