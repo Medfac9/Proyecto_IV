@@ -8,10 +8,15 @@ headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleW
 
 def comprobarTrack(numero_track):
     enlace = "http://www.17track.net/en/track?nums=" + numero_track
-    driver = webdriver.Chrome()
+    driver = webdriver.FireFox()
     driver.get(enlace)
     html = driver.page_source
     documento = BeautifulSoup(html, "html5lib")
+
+    existe = documento.find_all("span", class_ = "color-sky flag-status")[0].get_text()
+
+    if(existe == "Not Found"):
+        return -1
 
     empresa = documento.find_all("span", class_ = "jsTips express")[0].get_text()
     tamano = len(documento.find_all("div", class_ = "track-news clearfix"))
