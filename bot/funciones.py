@@ -8,7 +8,7 @@ headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleW
 
 def comprobarTrack(numero_track):
     enlace = "http://www.17track.net/en/track?nums=" + numero_track
-    driver = webdriver.Firefox()
+    driver = webdriver.Chrome()
     driver.get(enlace)
     html = driver.page_source
     documento = BeautifulSoup(html, "html5lib")
