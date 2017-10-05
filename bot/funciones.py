@@ -2,16 +2,24 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 
 def comprobarTrack(numero_track):
+    desired_cap = {
+    'platform': "Linux",
+    'browserName': "chrome",
+    'version': "48.0",
+     }
+    driver = webdriver.Remote(command_executor='http://dmrh:9b85933b-c43b-4394-9e31-140ec0cb793d@ondemand.saucelabs.com:80/wd/hub', desired_capabilities=desired_cap)
     enlace = "http://www.17track.net/en/track?nums=" + numero_track
-    driver = webdriver.Firefox()
     driver.get(enlace)
     html = driver.page_source
     documento = BeautifulSoup(html, "html5lib")
+    driver.quit()
 
     existe = documento.find_all("span", class_ = "color-sky flag-status")[0].get_text()
 
