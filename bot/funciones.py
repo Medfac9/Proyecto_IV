@@ -8,7 +8,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 
-def comprobarTrack(numero_track):
+def cargarWeb(numero_track):
     desired_cap = {
         'platform': "Linux",
         'browserName': "chrome",
@@ -20,31 +20,58 @@ def comprobarTrack(numero_track):
     html = driver.page_source
     documento = BeautifulSoup(html, "html5lib")
     driver.quit()
+    return documento
 
+def nombreEmpresa(documento):
     existe = documento.find_all("span", class_ = "color-sky flag-status")[0].get_text()
-
     if(existe == "Not Found"):
         return -1
 
     empresa = documento.find_all("span", class_ = "jsTips express")[0].get_text()
+
+    return empresa
+
+def informacionMensaje(documento):
+    existe = documento.find_all("span", class_ = "color-sky flag-status")[0].get_text()
+    if(existe == "Not Found"):
+        return -1
+
     tamano = len(documento.find_all("div", class_ = "track-news clearfix"))
     mensajes = []
-    fechas = []
     info = []
 
     for i in range(0,len(documento.find_all("div", class_ = "track-news clearfix"))):
         mensajes.append(documento.find_all("div", class_ = "track-news clearfix")[i].get_text())
         temp = mensajes[i]
-        temp2 = mensajes[i]
-        temp = temp[0:16]
-        temp2 = temp2[17:]
-        fechas.append(temp)
-        info.append(temp2)
+        temp = temp[17:]
+        info.append(temp)
 
-    return empresa, info, tamano, fechas
+    return info, tamano
+
+def fechaMensaje(documento):
+    existe = documento.find_all("span", class_ = "color-sky flag-status")[0].get_text()
+
+    if(existe == "Not Found"):
+        return -1
+
+    tamano = len(documento.find_all("div", class_ = "track-news clearfix"))
+    mensajes = []
+    fechas = []
+
+    for i in range(0,len(documento.find_all("div", class_ = "track-news clearfix"))):
+        mensajes.append(documento.find_all("div", class_ = "track-news clearfix")[i].get_text())
+        temp = mensajes[i]
+        temp = temp[0:16]
+        fechas.append(temp)
+
+    return fechas
 
 #nombre_empresa, info, tamano, fecha = comprobarTrack("PQ48K20440124700118006G")
-nombre_empresa, info, tamano, fecha = comprobarTrack("GM295118118000047210")
+documento = cargarWeb("GM295118118000047210")
+nombre_empresa = nombreEmpresa(documento)
+info, tamano = informacionMensaje(documento)
+fecha = fechaMensaje(documento)
+
 print("Nombre de la empresa: " + nombre_empresa)
 for i in range(tamano):
     print("\nFecha: " + fecha[i])
