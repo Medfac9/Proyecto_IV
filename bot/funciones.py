@@ -25,7 +25,7 @@ def cargarWeb(numero_track):
 def nombreEmpresa(documento):
     existe = documento.find_all("span", class_ = "color-sky flag-status")[0].get_text()
     if(existe == "Not Found"):
-        return -1
+        return None
 
     empresa = documento.find_all("span", class_ = "jsTips express")[0].get_text()
 
@@ -34,7 +34,7 @@ def nombreEmpresa(documento):
 def informacionMensaje(documento):
     existe = documento.find_all("span", class_ = "color-sky flag-status")[0].get_text()
     if(existe == "Not Found"):
-        return -1
+        return None
 
     tamano = len(documento.find_all("div", class_ = "track-news clearfix"))
     mensajes = []
@@ -52,7 +52,7 @@ def fechaMensaje(documento):
     existe = documento.find_all("span", class_ = "color-sky flag-status")[0].get_text()
 
     if(existe == "Not Found"):
-        return -1
+        return None
 
     tamano = len(documento.find_all("div", class_ = "track-news clearfix"))
     mensajes = []
@@ -67,7 +67,8 @@ def fechaMensaje(documento):
     return fechas
 
 #nombre_empresa, info, tamano, fecha = comprobarTrack("PQ48K20440124700118006G")
-documento = cargarWeb("GM295118118000047210")
+n_track = "GM295118118000047210"
+documento = cargarWeb(n_track)
 nombre_empresa = nombreEmpresa(documento)
 info, tamano = informacionMensaje(documento)
 fecha = fechaMensaje(documento)
