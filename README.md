@@ -14,3 +14,13 @@
 **Problema que resuelve el bot**: Tener controlado en todo momento el movimiento de los paquetes sin la necesidad de hacer busquedas manuales del mismo.  
 
 **¿Por qué sistema de test y de integración continua?**: El sistema de test consiste en un proceso que detecta si hay cambios en el código. Si es así, los cambios deben de pasar unos test predefinidos, los cuales, se encargan de ver si el código nuevo cumple los requisitos deseados. A este proceso lo llamamos integración continua. Esto es útil para evitar fallos y posibles complicaciones en el futuro.
+
+**PaaS elegido**: El PaaS elegido es Heroku. He elegido dicho PaaS gracias a la facilidad de su uso y además nos da la posibilidad de integrar una base de datos basada en Postgres. También nos permite alojar nuestra aplicación de forma gratuita.
+
+**Despliegue del PaaS**: Para desplegar nuestra aplicación será necesario usar los siguientes ficheros:
+* **Procfile**: Se situa en la raíz y contiene los comandos necesarios para ejecutar el bot.
+* **runtime.txt**: Se situa en la raíz y contiene el lenguaje y versión de nuestra aplicación.
+
+A continuación creamos la aplicación en Heroku con el comando `heroku create --region eu -a 'nombre_app'` y una base de datos`heroku addons:create heroku-postgresql:hobby-basic -a 'nombre_app'`. Seguidamente, enlazamos nuestra aplicación en Heroku con nuestro repositorio de GitHub.
+
+Para finalizar, activamos la opción de despliegue automatico en Heroku en la pestaña Deploy.
