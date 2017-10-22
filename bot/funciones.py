@@ -67,13 +67,13 @@ def fechaMensaje(documento):
     return fechas
 
 #nombre_empresa, info, tamano, fecha = comprobarTrack("PQ48K20440124700118006G")
-n_track = "GM295118118000047210"
+'''n_track = "GM295118118000047210"
 documento = cargarWeb(n_track)
 nombre_empresa = nombreEmpresa(documento)
 info, tamano = informacionMensaje(documento)
-fecha = fechaMensaje(documento)
+fecha = fechaMensaje(documento)'''
 
-print("Nombre de la empresa: " + nombre_empresa)
+'''print("Nombre de la empresa: " + nombre_empresa)
 for i in range(tamano):
     print("\nFecha: " + fecha[i])
-    print("\nInformación: " + info[i])
+    print("\nInformación: " + info[i])'''
