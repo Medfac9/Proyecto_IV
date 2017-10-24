@@ -1,21 +1,25 @@
 from flask import Flask, request
 from bot.funciones import *
 import json
+from flask_restful import Resource, Api
 
 app = Flask(__name__)
+api = Api(app)
+
+class Tracking(Resource):
+    def get(self, numero):
+        informacion = []
+        documento = cargarWeb(numero)
+        informacion.append(nombreEmpresa(documento))
+        informacion.append(informacionMensaje(documento))
+        informacion.append(fechaMensaje(documento))
+        return informacion
+
+api.add_resource(Tracking, '/track/<numero>')
 
 @app.route("/")
 def index():
     return ("Bienvenido")
-
-@app.route("/track/<numero>")
-def numero_track(numero):
-    informacion = []
-    documento = cargarWeb(numero)
-    informacion.append(nombreEmpresa(documento))
-    informacion.append(informacionMensaje(documento))
-    informacion.append(fechaMensaje(documento))
-    return json.dumps(informacion)
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
