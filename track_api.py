@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from bot.funciones import *
 import json
 from flask_restful import Resource, Api
@@ -16,6 +16,18 @@ class Tracking(Resource):
         return informacion
 
 api.add_resource(Tracking, '/track/<numero>')
+
+class status(Resource):
+    def get(self):
+        schema = {
+           "status": "OK",
+           "ejemplo": { "ruta": "/check",
+                        "valor": "{JSON: devuelto}"
+                      }
+        }
+        return jsonify(schema)
+
+api.add_resource(status, '/check')
 
 @app.route("/")
 def index():
