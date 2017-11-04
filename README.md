@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Medfac9/Proyecto_IV.svg?branch=master)](https://travis-ci.org/Medfac9/Proyecto_IV)
+[![Build Status](https://travis-ci.org/Medfac9/Proyecto_IV.svg?branch=master)](https://travis-ci.org/Medfac9/Proyecto_IV)  
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Medfac9/Proyecto_IV)
 
 # Proyecto IV
@@ -25,3 +25,5 @@
 A continuación creamos la aplicación en Heroku con el comando `heroku create --region eu -a 'nombre_app'` y una base de datos`heroku addons:create heroku-postgresql:hobby-basic -a 'nombre_app'`. Seguidamente, enlazamos nuestra aplicación en Heroku con nuestro repositorio de GitHub.
 
 Para finalizar, activamos la opción de despliegue automatico en Heroku en la pestaña Deploy.
+
+Despliegue https://track-bot-api.herokuapp.com/
