@@ -20,18 +20,11 @@ api.add_resource(Tracking, '/track/<numero>')
 class status(Resource):
     def get(self):
         schema = {
-           "status": "OK",
-           "ejemplo": { "ruta": "/check",
-                        "valor": "{JSON: devuelto}"
-                      }
+           "status": "OK"
         }
         return jsonify(schema)
 
-api.add_resource(status, '/check')
-
-@app.route("/")
-def index():
-    return ("Bienvenido")
+api.add_resource(status, '/')
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
