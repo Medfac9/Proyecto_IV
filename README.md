@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Medfac9/Proyecto_IV.svg?branch=master)](https://travis-ci.org/Medfac9/Proyecto_IV)  
+[![codecov.io Code Coverage](https://img.shields.io/codecov/c/github/Medfac9/Proyecto_IV.svg)](https://codecov.io/gh/Medfac9/Proyecto_IV)  
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Medfac9/Proyecto_IV)
 
 # Proyecto IV
