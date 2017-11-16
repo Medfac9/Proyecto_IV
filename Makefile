@@ -1,2 +1,5 @@
 test:
-	cd ./bot/ && python3 test.py
+	cd ./bot/ && coverage run test.py
+
+coverage:
+	cd ./bot/ && codecov
