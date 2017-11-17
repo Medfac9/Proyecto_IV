@@ -1,5 +1,7 @@
-[![Build Status](https://travis-ci.org/Medfac9/Proyecto_IV.svg?branch=master)](https://travis-ci.org/Medfac9/Proyecto_IV)  
+[![Build Status](https://travis-ci.org/Medfac9/Proyecto_IV.svg?branch=master)](https://travis-ci.org/Medfac9/Proyecto_IV)   
+![](https://dockerbuildbadges.quelltext.eu/status.svg?organization=Medfac9&repository=Proyecto_IV)  
 [![codecov.io Code Coverage](https://img.shields.io/codecov/c/github/Medfac9/Proyecto_IV.svg)](https://codecov.io/gh/Medfac9/Proyecto_IV)  
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)  
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Medfac9/Proyecto_IV)
 
 # Proyecto IV
@@ -19,7 +21,7 @@
 
 **PaaS elegido**: El PaaS elegido es Heroku. He elegido dicho PaaS gracias a la facilidad de su uso y además nos da la posibilidad de integrar una base de datos basada en Postgres. También nos permite alojar nuestra aplicación de forma gratuita.
 
-**Despliegue del PaaS**: Para desplegar nuestra aplicación será necesario usar los siguientes ficheros:
+**Despliegue en Heroku**: Para desplegar nuestra aplicación será necesario usar los siguientes ficheros:
 * **Procfile**: Se situa en la raíz y contiene los comandos necesarios para ejecutar el bot.
 * **runtime.txt**: Se situa en la raíz y contiene el lenguaje y versión de nuestra aplicación.
 
@@ -27,4 +29,26 @@ A continuación creamos la aplicación en Heroku con el comando `heroku create -
 
 Para finalizar, activamos la opción de despliegue automatico en Heroku en la pestaña Deploy.
 
+Estas son algunas imagenes del despliegue en Heroku:
+
+![Captura de pantalla1](https://imgur.com/ooRurRc.jpg)
+
+![Captura de pantalla2](https://imgur.com/On3dZ70.jpg)
+
+![Captura de pantalla3](https://imgur.com/qqdqVr6.jpg)
+
 Despliegue https://track-bot-api.herokuapp.com/
+
+**Despliegue en Docker**: Primeramente creamos nuestro repositorio en Docker y lo enlazamos con GitHub
+
+![Captura de pantalla4](https://imgur.com/tkfk9fy.jpg)
+
+![Captura de pantalla5](https://imgur.com/9f8GAQP.jpg)
+
+Seguidamente, crearemos un archivo Dockerfile que incluiremos en nuestro repositorio. Si todo está bien configurado, Docker construirá un contenedor. Una vez acabado, vemos que no ha ocurrido ningún error:
+
+![Captura de pantalla6](https://imgur.com/Z9dLq5E.jpg)
+
+Con el sigueinte comando: `sudo docker run -e "token_bot=MI_TOKEN" -i -t medfac9/track-bot` tendremos acceso a nuestro contenedor y podremos ejecutar nuestra aplicación desde Docker.
+
+Se puede acceder al repositorio de Docker por el siguiente enlace: https://hub.docker.com/r/medfac9/track-bot/
