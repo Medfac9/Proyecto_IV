@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/Medfac9/Proyecto_IV.svg?branch=master)](https://travis-ci.org/Medfac9/Proyecto_IV)   
-![](https://dockerbuildbadges.quelltext.eu/status.svg?organization=Medfac9&repository=Proyecto_IV)  
+![](https://dockerbuildbadges.quelltext.eu/status.svg?organization=medfac9&repository=track-bot)  
 [![codecov.io Code Coverage](https://img.shields.io/codecov/c/github/Medfac9/Proyecto_IV.svg)](https://codecov.io/gh/Medfac9/Proyecto_IV)  
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)  
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Medfac9/Proyecto_IV)
