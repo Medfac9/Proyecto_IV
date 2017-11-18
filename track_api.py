@@ -26,5 +26,14 @@ class status(Resource):
 
 api.add_resource(status, '/')
 
+class statusDocker(Resource):
+    def get(self):
+        schema = {
+           "status": "OK"
+        }
+        return jsonify(schema)
+
+api.add_resource(status, '/status')
+
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
