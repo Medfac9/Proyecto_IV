@@ -16,4 +16,4 @@ RUN cd Proyecto_IV/ && pip3 install -r requirements.txt
 EXPOSE 80
 WORKDIR Proyecto_IV/
 
-CMD ["gunicorn", "--config=config_gunicorn.py", "flask_api:app"]
+CMD ["gunicorn", "--config=config_gunicorn.py", "track_api:app"]
