@@ -10,6 +10,8 @@ import json
 import requests
 
 bot = telebot.TeleBot(os.environ["token_bot"])
+# bot = telebot.TeleBot("457169437:AAFKfqkXVJrOeoB5tABZu_Is668PUlhYY-0")
+
 
 def listener(messages):
     for m in messages:
@@ -29,24 +31,19 @@ def command_start(m):
 
 @bot.message_handler(commands=['buscar_track'])
 def command_buscar_track(m):
-    # datos = []
     cid = m.chat.id
     track = m.text
     track = track[14:]
-    # documento = cargarWeb(track)
-    # datos.append(nombreEmpresa(documento))
-    # datos.append(informacionMensaje(documento))
-    # datos.append(fechaMensaje(documento))
 
-    apiUrl = 'http://127.0.0.1:8000/track/'
+    apiUrl = 'https://track-bot-api.herokuapp.com/track/'
     apiUrl += track
 
     documento = requests.get(apiUrl)
     datos = documento.json()
 
     bot.send_message(cid, 'Nombre de la empresa de transporte: ' + datos["Nombre de la empresa de transporte"])
-    for p in range(len(datos[1][0])):
-        bot.send_message(cid, 'Fecha: ' + datos[2][p])
-        bot.send_message(cid, 'Evento: ' + datos[1][0][p])
+    for p in range(len(datos["Evento"][0])):
+        bot.send_message(cid, 'Fecha: ' + datos["Fecha"][p])
+        bot.send_message(cid, 'Evento: ' + datos["Evento"][0][p])
 
 bot.polling(none_stop=True)
