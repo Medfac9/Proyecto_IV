@@ -20,7 +20,6 @@ def cargarWeb(numero_track):
     html = driver.page_source
     documento = BeautifulSoup(html, "html5lib")
     driver.quit()
-    print(documento)
     return documento
 
 def nombreEmpresa(documento):
