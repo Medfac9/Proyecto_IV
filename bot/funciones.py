@@ -65,3 +65,15 @@ def fechaMensaje(documento):
         fechas.append(temp)
 
     return fechas
+
+# numero_track = "PQ48K20440124700118006G"
+# documento = cargarWeb(numero_track)
+
+# nombre_empresa = nombreEmpresa(documento)
+# info, tamano = informacionMensaje(documento)
+# fecha = fechaMensaje(documento)
+
+# print("Nombre de la empresa: " + nombre_empresa)
+# for i in range(tamano):
+#     print("\nFecha: " + fecha[i])
+#     print("\nInformación: " + info[i])
