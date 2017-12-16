@@ -8,16 +8,15 @@ api = Api(app)
 
 class Tracking(Resource):
     def get(self, numero):
-        informacion = []
         documento = cargarWeb(numero)
-        # nombre = informacion.append(nombreEmpresa(documento))
-        # info = informacion.append(informacionMensaje(documento))
-        # fecha = informacion.append(fechaMensaje(documento))
+        nombre = nombreEmpresa(documento)
+        info = informacionMensaje(documento)
+        fecha = fechaMensaje(documento)
 
         schema = {
-            "Nombre de la empresa de transporte": informacion.append(nombreEmpresa(documento)),
-            "Fecha": informacion.append(fechaMensaje(documento)),
-            "Evento": informacion.append(informacionMensaje(documento))
+            "Nombre de la empresa de transporte": nombreEmpresa(documento),
+            "Fecha": fecha,
+            "Evento": info
         }
         
         return jsonify(schema)
@@ -43,4 +42,4 @@ class statusDocker(Resource):
 api.add_resource(statusDocker, '/status')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80)
+    app.run(debug=True, use_reloader=True)
