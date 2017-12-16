@@ -9,9 +9,7 @@ import os
 import json
 import requests
 
-#bot = telebot.TeleBot(os.environ["token_bot"])
-bot = telebot.TeleBot("457169437:AAFKfqkXVJrOeoB5tABZu_Is668PUlhYY-0")
-
+bot = telebot.TeleBot(os.environ["token_bot"])
 
 def listener(messages):
     for m in messages:
@@ -35,7 +33,7 @@ def command_buscar_track(m):
     track = m.text
     track = track[14:]
 
-    apiUrl = 'http://127.0.0.1:8000/track/'
+    apiUrl = 'https://track-bot-api.herokuapp.com/track/'
     apiUrl += track
 
     documento = requests.get(apiUrl)
