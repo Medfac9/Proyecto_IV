@@ -1,0 +1,36 @@
+---
+- hosts: bot-track-aws
+  user: ubuntu
+  gather_facts: no
+  vars:
+   token_bot: "{{ lookup('env','token_bot') }}"
+
+  pre_tasks:
+  - name: Instalar Python
+    become: yes
+    raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+
+  tasks:
+  - name: Actualizar sistema
+    become: yes
+    command: apt-get update
+
+  - name: Instalar essential
+    become: yes
+    command: apt-get install -y build-essential
+
+  - name: Instalar Git
+    become: yes
+    command: apt-get install -y git
+
+  - name: Instalar pip3
+    become: yes
+    command: apt-get install -y python3-pip
+
+  - name: Clonar GitHub
+    become: yes
+    git: repo=https://github.com/Medfac9/Proyecto_IV  dest=home/ubuntu/Proyecto_IV clone=yes force=yes
+
+  - name: Instalar requirements
+    become: yes
+    command: pip3 install -r home/ubuntu/Proyecto_IV/requirements.txt
