@@ -10,14 +10,14 @@ class Tracking(Resource):
     def get(self, numero):
         informacion = []
         documento = cargarWeb(numero)
-        nombre = informacion.append(nombreEmpresa(documento))
-        info = informacion.append(informacionMensaje(documento))
-        fecha = informacion.append(fechaMensaje(documento))
+        # nombre = informacion.append(nombreEmpresa(documento))
+        # info = informacion.append(informacionMensaje(documento))
+        # fecha = informacion.append(fechaMensaje(documento))
 
         schema = {
-            "Nombre de la empresa de transporte": nombre,
-            "Datos": info,
-            "Fecha": fecha
+            "Nombre de la empresa de transporte": informacion.append(nombreEmpresa(documento)),
+            "Fecha": informacion.append(fechaMensaje(documento)),
+            "Evento": informacion.append(informacionMensaje(documento))
         }
         
         return jsonify(schema)
