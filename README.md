@@ -60,4 +60,4 @@ Al final de dicho archivo usamos Ansible para aprovisionar la [IaaS](https://git
 Para automatizar el despligue vamos a usar [Fabric](https://github.com/Medfac9/Proyecto_IV/blob/master/despliegue/fabfile.py) con sel siguiente comando `fab -i KEY.pem -H ubuntu@DNS funcion`, siendo key la clave ssh y funcion alguna de las funciones del fichero.  
 Para finalizar se crea un [script](https://github.com/Medfac9/Proyecto_IV/blob/master/script/provision.sh) que automatiza la de creación y aprovisionamiento del IaaS en AWS.
 
-Despliegue final: http://ec2-54-245-2-192.us-west-2.compute.amazonaws.com
+Despliegue final: ec2-54-245-2-192.us-west-2.compute.amazonaws.com
