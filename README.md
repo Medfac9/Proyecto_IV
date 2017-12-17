@@ -54,3 +54,10 @@ Con el sigueinte comando: `sudo docker run -e "token_bot=MI_TOKEN" -i -t medfac9
 Se puede acceder al repositorio de Docker por el siguiente enlace: https://hub.docker.com/r/medfac9/proyecto_iv/
 
 Contenedor https://proyectoiv-sqqamqhxwx.now.sh/
+
+**Despliegue en AWS**: Para desplegar nuestra aplicación en AWS usaremos Vagrant, con la siguiente configuración de [Vagrantfile](https://github.com/Medfac9/Proyecto_IV/blob/master/Vagrantfile).  
+Al final de dicho archivo usamos Ansible para aprovisionar la [IaaS](https://github.com/Medfac9/Proyecto_IV/blob/master/ansible_bot.yml).  
+Para automatizar el despligue vamos a usar [Fabric](https://github.com/Medfac9/Proyecto_IV/blob/master/despliegue/fabfile.py) con sel siguiente comando `fab -i KEY.pem -H ubuntu@DNS funcion`, siendo key la clave ssh y funcion alguna de las funciones del fichero.  
+Para finalizar se crea un [script](https://github.com/Medfac9/Proyecto_IV/blob/master/script/provision.sh) que automatiza la de creación y aprovisionamiento del IaaS en AWS.
+
+Despliegue final: ec2-54-245-2-192.us-west-2.compute.amazonaws.com
