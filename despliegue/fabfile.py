@@ -1,7 +1,7 @@
 from fabric.api import *
 
 def instalarProyecto():
-	run('sudo git clone https://github.com/Medfac9/Proyecto_IV')
+	run('git clone https://github.com/Medfac9/Proyecto_IV')
 	run('cd ./Proyecto_IV && sudo pip3 install -r requirements.txt')
 
 def subirApi():
