@@ -5,17 +5,19 @@ Vagrant.configure("2") do |config|
     host.vm.hostname = "bot-track-aws"
   end
   config.vm.provider :aws do |aws, override|
-    aws.access_key_id = "ASIAIB4EFTNW4Z3L5FKA"
-    aws.secret_access_key = "faGv5Ah5wlb80ZUeHXDwPpG5OCUIjnAo1jzoG5nR"
-    aws.session_token = "FQoDYXdzEHwaDHMQQ9r5ZLkDlXr9UiKUATRo9cKTdfmtk8SPpAZmdwydEO52i/Z3P301bPaK/TpN58b/bGUEmR2YndxKjfmSx7mXpKSvE1DbmSJVUNf+td3AbzPaAOjDTccHQfkitfwzmUsVpwEJaptgRSRTjMoAEg38BJkvt5bxbJu5RRUiwLt3K3cn8IPENltMyFVoss5/zvtZTYKKrqlLBXTbvTH5MMFdjQEo8NvV0QU="
+    aws.access_key_id = "access_key_id"
+    aws.secret_access_key = "secret_access_key/1w"
+    aws.session_token = "session_token"
     aws.keypair_name = "KEY"
     aws.region= "us-west-2"
     aws.security_groups = [ 'grupo' ]
     aws.instance_type= 't2.micro'
     aws.ami = "ami-19e92861"
 
+    override.nfs.functional = false
+
     override.ssh.username = "ubuntu"
-    override.ssh.private_key_path = "/Users/mrmedfac9/Downloads/KEY.pem"
+    override.ssh.private_key_path = "KEY.pem"
   end
 
     config.vm.provision :ansible do |ansible|
